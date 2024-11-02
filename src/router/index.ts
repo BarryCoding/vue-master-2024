@@ -1,27 +1,14 @@
-import HomeView from '@/views/HomeView.vue'
-import { h } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { routes, handleHotUpdate } from 'vue-router/auto-routes'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    { path: '/', name: 'home', component: HomeView },
-    {
-      path: '/projects',
-      name: 'projects',
-      component: () => import('@/views/ProjectsView.vue'),
-    },
-    {
-      path: '/projects/:id',
-      name: 'project-detail',
-      component: () => import('@/views/ProjectDetailView.vue'),
-    },
-    {
-      path: '/:catchAll(.*)*',
-      name: 'not-found',
-      component: h('p', { style: { color: 'red' } }, '404 Not Found'),
-    },
-  ],
+  routes,
 })
+
+// This will update routes at runtime without reloading the page
+if (import.meta.hot) {
+  handleHotUpdate(router)
+}
 
 export default router
