@@ -9,7 +9,17 @@ import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 
 export default defineConfig({
-  plugins: [VueRouter(), vue(), vueDevTools()],
+  plugins: [
+    VueRouter(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.includes('iconify-icon'),
+        },
+      },
+    }),
+    vueDevTools(),
+  ],
   css: {
     postcss: {
       plugins: [tailwind(), autoprefixer()],

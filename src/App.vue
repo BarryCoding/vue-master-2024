@@ -13,7 +13,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 <template>
   <nav class="flex h-16 items-center justify-between border-b bg-muted/40 px-6">
-    <form class="w-full max-w-96">
+    <form class="relative w-full max-w-96">
+      <iconify-icon
+        class="absolute left-2.5 top-[50%] translate-y-[-50%] text-muted-foreground"
+        icon="lucide:search"
+      ></iconify-icon>
       <Input
         class="w-full bg-background pl-8"
         type="text"
