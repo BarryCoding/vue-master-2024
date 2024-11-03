@@ -36,6 +36,47 @@ export type Database = {
         }
         Relationships: []
       }
+      vue_tasks: {
+        Row: {
+          collaborators: string[]
+          created_at: string
+          description: string
+          due_date: string | null
+          id: number
+          name: string
+          project_id: number | null
+          status: Database["public"]["Enums"]["current_status"]
+        }
+        Insert: {
+          collaborators?: string[]
+          created_at?: string
+          description: string
+          due_date?: string | null
+          id?: never
+          name: string
+          project_id?: number | null
+          status?: Database["public"]["Enums"]["current_status"]
+        }
+        Update: {
+          collaborators?: string[]
+          created_at?: string
+          description?: string
+          due_date?: string | null
+          id?: never
+          name?: string
+          project_id?: number | null
+          status?: Database["public"]["Enums"]["current_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vue_tasks_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "vue_projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
