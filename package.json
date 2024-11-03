@@ -15,7 +15,8 @@
     "db:login": "supabase login",
     "db:link": "supabase link --project-ref fsuopgqcgkawedcmwjkh",
     "db:migration:new": "supabase migration new schema_vue_projects",
-    "db:reset": "supabase db reset --linked"
+    "db:reset": "supabase db reset --linked",
+    "db:seed": "node --env-file=.env database/seed.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
@@ -24,6 +25,7 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.1.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.17.0",
     "@vitejs/plugin-vue": "^5.1.4",
