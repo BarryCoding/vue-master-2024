@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { supabase } from '@/lib/supabase'
 import { ref } from 'vue'
+import { supabase } from '@/lib/supabase'
+import type { Tables } from '../../../database/types'
 
-const projects = ref()
+const projects = ref<Tables<'vue_projects'>[]>()
 
 ;(async () => {
   const { data, error } = await supabase.from('vue_projects').select()
@@ -15,6 +16,10 @@ const projects = ref()
   <div>
     <h1>Projects Page</h1>
     <RouterLink to="/">To home</RouterLink>
-    <pre>{{ projects }}</pre>
+    <ul>
+      <li :key="project.id" v-for="project in projects">
+        {{ project.name }} {{ project.slug }} {{ project.status }}
+      </li>
+    </ul>
   </div>
 </template>

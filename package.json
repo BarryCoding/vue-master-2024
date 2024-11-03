@@ -16,7 +16,8 @@
     "db:link": "supabase link --project-ref fsuopgqcgkawedcmwjkh",
     "db:migration:new": "supabase migration new schema_vue_projects",
     "db:reset": "supabase db reset --linked",
-    "db:seed": "node --env-file=.env database/seed.js"
+    "db:seed": "node --env-file=.env database/seed.js",
+    "db:types": "supabase gen types --lang=typescript --project-id fsuopgqcgkawedcmwjkh --schema public > database/types.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
