@@ -13,7 +13,9 @@
     "format": "prettier --write src/",
     "db:init": "supabase init",
     "db:login": "supabase login",
-    "db:link": "supabase link --project-ref fsuopgqcgkawedcmwjkh"
+    "db:link": "supabase link --project-ref fsuopgqcgkawedcmwjkh",
+    "db:migration:new": "supabase migration new schema_vue_projects",
+    "db:reset": "supabase db reset --linked"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
